@@ -14,6 +14,9 @@ function Layout() {
   
   <>
 
+
+<div className="max-w-screen-xl m-auto">
+
 <Header></Header>
   
 
@@ -22,6 +25,8 @@ function Layout() {
 
 <Footer></Footer>
 
+
+</div>
    
 
     </>
