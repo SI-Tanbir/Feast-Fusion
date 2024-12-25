@@ -3,8 +3,8 @@ import React from "react";
 const Header = () => {
   return (
 
-
-    <div className="navbar bg-base-100 pt-0">
+ 
+    <div className="navbar fixed  z-10 opacity-50 bg-black text-white pt-0">
       <div className="navbar-start">
         <div className="dropdown">
           

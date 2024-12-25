@@ -1,6 +1,7 @@
 
 
 import './App.css'
+import Banner from './Banner/Banner'
 
 
 function App() {
@@ -11,9 +12,7 @@ function App() {
   
   <>
  
-<p>this is home</p>
-
-
+<Banner></Banner>
     </>
   
 
