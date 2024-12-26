@@ -20,6 +20,8 @@ import slider5 from '../assets/home/slide5.jpg'
 import HeaderTitiles from '../HeaderTitiles';
 import gallery from '../assets/home/chef-service.jpg'
 import PopularMenu from '../PopularMenu';
+import ChefRecomended from '../ChefRecomended';
+import CheckitoutSection from '../CheckitoutSection';
 
 const Banner = () => {
   return (
@@ -90,7 +92,20 @@ const Banner = () => {
 
 <PopularMenu></PopularMenu>
 
+
+
+
+<ChefRecomended></ChefRecomended>
+
+
+
+{/* starting of checkit out section */}
+
+<CheckitoutSection></CheckitoutSection>
+
     </div>
+
+
 
 
   )

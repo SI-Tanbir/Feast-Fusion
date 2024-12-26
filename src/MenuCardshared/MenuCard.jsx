@@ -4,7 +4,7 @@ const MenuCard = ({image,title,recipe,price}) => {
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl">
   <figure>
-    <img style={{borderRadius:'0 500px 500px 500px',width:'100px'}}
+    <img style={{borderRadius:'0 90% 90% 90%',width:'100px'}}
       src={image}
       alt="Album" />
   </figure>
