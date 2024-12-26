@@ -22,6 +22,7 @@ import gallery from '../assets/home/chef-service.jpg'
 import PopularMenu from '../PopularMenu';
 import ChefRecomended from '../ChefRecomended';
 import CheckitoutSection from '../CheckitoutSection';
+import Testimonial from '../Testimonial';
 
 const Banner = () => {
   return (
@@ -102,6 +103,8 @@ const Banner = () => {
 {/* starting of checkit out section */}
 
 <CheckitoutSection></CheckitoutSection>
+
+
 
     </div>
 
