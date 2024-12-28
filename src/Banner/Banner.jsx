@@ -94,6 +94,9 @@ const Banner = () => {
 <PopularMenu></PopularMenu>
 
 
+<div className="  text-white p-8 m-auto text-3xl max-w-[1200px] text-center bg-black"> Call us: +80079709089 </div>
+
+
 
 
 <ChefRecomended></ChefRecomended>

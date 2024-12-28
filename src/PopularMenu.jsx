@@ -33,7 +33,7 @@ const PopularMenu = () => {
       </div>
 
      
-        <div className="  text-white p-8 m-auto text-3xl max-w-[1200px] text-center bg-black"> Call us: +80079709089 </div>
+    
      
 
     </div>
