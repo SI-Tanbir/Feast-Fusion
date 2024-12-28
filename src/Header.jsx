@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Header = () => {
   return (
@@ -33,14 +34,14 @@ const Header = () => {
             </li>
             <li>
               <a>Parent</a>
-              <ul className="p-2">
+              {/* <ul className="p-2">
                 <li>
                   <a>Submenu 1</a>
                 </li>
                 <li>
                   <a>Submenu 2</a>
                 </li>
-              </ul>
+              </ul> */}
             </li>
             <li>
               <a>Item 3</a>
@@ -52,20 +53,19 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+          <Link to={'/'}>Home</Link>
           </li>
           <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
+            <Link to={'/menu'}>Menu</Link>
+              
+              {/* <ul className="p-2">
                 <li>
                   <a>Submenu 1</a>
                 </li>
                 <li>
                   <a>Submenu 2</a>
                 </li>
-              </ul>
-            </details>
+              </ul> */}
           </li>
           <li>
             <a>Item 3</a>
