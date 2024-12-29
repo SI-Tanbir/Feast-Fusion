@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import app from "../firebase";
 import img from "./assets/others/authentication1.png";
 import { getAuth,  signInWithEmailAndPassword } from "firebase/auth";
@@ -6,9 +6,17 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 import React from 'react';
 
 import { ToastContainer, toast } from 'react-toastify';
+import { AuthContext } from "./Authprovider/Authprovider";
+import { useLocation, useNavigate } from "react-router";
 
 
 const Login = () => {
+
+// const info=useContext(AuthContext)
+
+// console.log( info)
+
+
     const notify = () => toast("Captcha solved");
 
   const auth = getAuth(app);
@@ -41,6 +49,12 @@ const Login = () => {
 
 
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+
+
+//   console.log('tesing the from login locaiotn',location.state.from)
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -55,6 +69,10 @@ const Login = () => {
         // Signed up
         const user = userCredential.user;
         console.log(user);
+        navigate('/dashboard');
+        // console.log(location?.state?.from)
+
+
         // ...
       })
       .catch((error) => {

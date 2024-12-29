@@ -5,6 +5,8 @@ import Menubar from "../Menubar";
 import OurShopPages from "../OurShopPages";
 import Login from "../Login";
 import Register from "../Register";
+import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Dashboard";
 
 export let router = createBrowserRouter([
   {
@@ -30,6 +32,10 @@ export let router = createBrowserRouter([
     {
       path:'/register',
       element:<Register></Register>
+    },
+    {
+      path:'/dashboard',
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
     }
 
 ],

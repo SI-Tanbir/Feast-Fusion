@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "./Authprovider/Authprovider";
+import app from "../firebase";
+import { getAuth, signOut } from "firebase/auth";
 
 const Header = () => {
+  const {user} = useContext(AuthContext)
+  // console.log(user)
+  const auth=getAuth(app)
+
+  const handlesignout =async()=>{
+    try {
+      await signOut(auth);
+      console.log("User signed out successfully.");
+  } catch (error) {
+      console.error("Error signing out:", error);
+  }
+
+
+  
+  }
   return (
 
  
@@ -73,12 +91,34 @@ const Header = () => {
           <Link to={'/shop'}>Shop</Link>
           </li>
 
-          <li>
-          <Link to={'/login'}>Login</Link>
+                {
+                  user ? ( <>
+                   <li>
+          <Link to={'/dashboard'}>Dashboard</Link>
           </li>
-          <li>
-          <Link to={'/register'}>Register</Link>
-          </li>
+                    <li>
+                    <Link onClick={handlesignout} to={'/'}>Signout</Link>
+                    </li>
+
+                  </>
+
+                  )
+                  
+                  
+                  
+                  
+                  
+                  :(
+                    <>  <li>
+                    <Link to={'/login'}>Login</Link>
+                    </li>
+                    <li>
+                    <Link to={'/register'}>Register</Link>
+                    </li>
+                    </>
+                  )
+                }
+        
         </ul>
       </div>
       <div className="navbar-end">

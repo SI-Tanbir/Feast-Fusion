@@ -1,16 +1,20 @@
 
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 // import menu from './assets/menu.json'
 import banner from './assets/contact/banner.jpg'
 import { useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { useLocation } from 'react-router'
+import { AuthContext } from './Authprovider/Authprovider'
 
 const OurShopPages = () => {
 
   const location = useLocation();
   const [data ,setData]=useState(null)
-  const [loading,setLoading]=useState(true)
+
+  const {loading,setLoading}=useContext(AuthContext)
+
+  // const [loading,setLoading]=useState(true)
   const [card,setCard]=useState([])
 useEffect(()=>{
   const queryParams = new URLSearchParams(location.search);
@@ -22,7 +26,9 @@ useEffect(()=>{
     {
       setData(d)
      if(category){
+      
       handledata(category,d)
+      
     }else{
       handledata('salad',d)
       
