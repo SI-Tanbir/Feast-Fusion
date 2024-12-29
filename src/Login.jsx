@@ -1,9 +1,46 @@
+import { useEffect, useState } from "react";
 import app from "../firebase";
 import img from "./assets/others/authentication1.png";
 import { getAuth,  signInWithEmailAndPassword } from "firebase/auth";
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import React from 'react';
+
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Login = () => {
+    const notify = () => toast("Captcha solved");
+
   const auth = getAuth(app);
+
+  const [disabled,setDisabled]=useState(true)
+
+  useEffect(()=>{
+    loadCaptchaEnginge(6); 
+
+  },[])
+  //captcha checker
+  const captchaChecker=(e)=>{
+    e.preventDefault()
+    const captcha= e.target.value;
+    console.log(captcha)
+
+   if(captcha.length ==6){
+     
+    if(validateCaptcha(captcha)==true){
+        // confirm("Captha Match")
+        setDisabled(false)
+        notify()
+
+    }
+   }
+
+
+
+  }
+
+
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -49,7 +86,7 @@ const Login = () => {
                 name="email"
                 type="email"
                 placeholder="email"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 required
               />
             </div>
@@ -58,20 +95,34 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
+                
                 name="password"
                 type="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+              <LoadCanvasTemplateNoReload />
+
+
               </label>
+
+              
+               <input
+               onChange={captchaChecker}
+                name="captcha"
+                type="text"
+                placeholder="Prove you are human"
+                className="text-black input input-bordered"
+                required
+              />
+                        <ToastContainer />
+
+
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button disabled={disabled} className="btn btn-primary">Login</button>
             </div>
           </form>
         </div>
