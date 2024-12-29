@@ -1,26 +1,86 @@
 
 import { useState } from 'react'
-import menu from './assets/menu.json'
+// import menu from './assets/menu.json'
 import banner from './assets/contact/banner.jpg'
+import { useEffect } from 'react'
+import Skeleton from 'react-loading-skeleton'
+import { useLocation } from 'react-router'
 
 const OurShopPages = () => {
 
-    const defaultset=menu.filter(items => items.category === `soup`)
+  const location = useLocation();
+  const [data ,setData]=useState(null)
+  const [loading,setLoading]=useState(true)
+  const [card,setCard]=useState([])
+useEffect(()=>{
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get('cat'); 
+  // console.log(category)
+  fetch('http://localhost:5000/menu')
+  .then(res=> res.json())
+  .then(d=>
+    {
+      setData(d)
+     if(category){
+      handledata(category,d)
+    }else{
+      handledata('salad',d)
+      
+    }
+    setLoading(false)
+    }
+)
+},[])
 
-    const [card,setCard]=useState(defaultset)
+// console.log(data)
 
-    const handledata=(food)=>{
-        const filter=menu.filter(items => items.category === `${food}`)
-        console.log( filter)
-        setCard(filter)
+    // const defaultset=menu.filter(items => items.category === `soup`)
+
+
+    const handledata=(food,items)=>{
+    if(items){
+      const filter=items?.filter(items => items.category === `${food}`)
+      // console.log( filter)
+      setCard(filter)
+    
+    }else{
+
+      const filter=data?.filter(items => items.category === `${food}`)
+      // console.log( filter)
+      setCard(filter)
+    }
 
 
     
 
     }
+
+
+
+
+    
   return (
+
+    
+
+    
     <div>
 
+    {
+      loading &&   (
+        <div className="grid grid-cols-3 gap-8">
+        {Array(3) // Change the number to match your expected cards
+           .fill(0)?.map((_, index) => (
+              <div key={index}>
+                 <Skeleton height={200} />
+                 <Skeleton height={30} width="70%" />
+                 <Skeleton height={20} width="50%" />
+                 <Skeleton height={40} width="80%" />
+              </div>
+           ))}
+     </div>
+      )
+    }
 
 
 
@@ -120,7 +180,7 @@ const OurShopPages = () => {
     <h2 className="card-title">{res.name}</h2>
     <p>{res.recipe}</p>
     <div className="card-actions justify-center">
-      <button className="btn btn-primary">Buy Now</button>
+      <button  className="btn btn-primary">Add to cart</button>
     </div>
   </div>
 </div>
