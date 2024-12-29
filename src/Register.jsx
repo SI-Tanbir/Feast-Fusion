@@ -1,7 +1,44 @@
 
+import app from '../firebase';
 import img from './assets/others/authentication1.png'
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 
 const Register = () => {
+
+  const auth = getAuth(app);
+
+
+  const handleRegister=(e)=>{
+    e.preventDefault()
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+
+
+
+
+
+    createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorMessage)
+
+    // ..
+  });
+
+
+
+
+  }
+
   return (
 <div
   className="hero min-h-screen"
@@ -13,18 +50,18 @@ const Register = () => {
     
     
   <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <form className="card-body">
+      <form onSubmit={handleRegister} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+          <input name='email' type="email" placeholder="email" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
+          <input name='password' type="password" placeholder="password" className="input input-bordered" required />
     
         </div>
         <div className="form-control mt-6">

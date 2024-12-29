@@ -7,7 +7,7 @@ const ChefRecomended = () => {
     
     let refineData=reviewData.slice(0,3)
     
-    console.log(refineData)
+    // console.log(refineData)
 
   return (
     <div>
@@ -17,6 +17,8 @@ const ChefRecomended = () => {
 
 
 <div className='flex gap-8'>
+
+  
 
 
 { 
