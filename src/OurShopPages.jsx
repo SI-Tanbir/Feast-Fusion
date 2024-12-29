@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import menu from './assets/menu.json'
+import banner from './assets/contact/banner.jpg'
 
 const OurShopPages = () => {
 
@@ -26,7 +27,7 @@ const OurShopPages = () => {
 <div
   className="hero h-[500px]"
   style={{
-    backgroundImage: "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+    backgroundImage: `url(${banner})`,
   }}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-neutral-content text-center">
