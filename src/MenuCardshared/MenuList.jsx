@@ -18,9 +18,6 @@ const MenuList = ({filterMenu}) => {
 
 
 
-
-
-
   <div>
     <HeaderTitles
       mainheading={filterMenu}
