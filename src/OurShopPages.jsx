@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 
 const OurShopPages = () => {
   const location = useLocation();
-  const loci=useLocation()
   const navigate = useNavigate();
   const [data, setData] = useState(null);
 
@@ -85,7 +84,7 @@ const OurShopPages = () => {
     
     
     else {
-      navigate("/login" ,{state:{from:loci.pathname} } );
+      navigate("/login" ,{state:{from:location.pathname} } );
       
     }
   };

@@ -18,7 +18,7 @@ const PrivateRoute = ({children}) => {
         </>
     } 
     else{
-        if(user){
+        if(user ){
             return children
         }
         else{

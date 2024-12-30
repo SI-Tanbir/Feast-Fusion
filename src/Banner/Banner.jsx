@@ -8,9 +8,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 
-import img1 from '../assets/home/01.jpg'
-import img2 from '../assets/home/02.jpg'
-import img3 from '../assets/home/03.png'
+import img3 from '../assets/img1.jpeg'
+import img2 from '../assets/img2.jpeg'
+import img1 from '../assets/home/03.png'
 
 import slider1 from '../assets/home/slide1.jpg'
 import slider2 from '../assets/home/slide2.jpg'

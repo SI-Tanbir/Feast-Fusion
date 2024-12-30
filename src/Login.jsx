@@ -59,17 +59,18 @@ const Login = () => {
         // Signed up
         const user = userCredential.user;
         console.log(user);
-      
+
         if (location.state?.from) {
-          navigate(`/${location.state.from}`);
-          console.log('hey working')
-          console.log(location.state.from)
-          console.log(location)
+          // const redirectPath = location.state?.from || "/menu";
+          // navigate(redirectPath);
+          navigate(`${location.state.from}`);
+          console.log("hey working");
+          console.log(location.state.from);
+          console.log(location);
         } else {
-          navigate('/menu');
-          console.log('it form menu')
+          navigate("/menu");
+          console.log("it form menu");
         }
-        
 
         // ...
       })
