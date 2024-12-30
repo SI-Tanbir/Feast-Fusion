@@ -18,7 +18,7 @@ import { Navigation } from 'swiper/modules';
 
 const Testimonial = () => {
 
-    console.log(review)
+    // console.log(review)
   return (
     <div>
 

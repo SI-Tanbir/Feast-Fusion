@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "./Authprovider/Authprovider";
 import app from "../firebase";
 import { getAuth, signOut } from "firebase/auth";
@@ -10,6 +10,7 @@ import { TiShoppingCart } from "react-icons/ti";
 
 const Header = () => {
   const {user} = useContext(AuthContext)
+  const navigate=useNavigate()
   // console.log(user)
   const auth=getAuth(app)
 
@@ -17,6 +18,8 @@ const Header = () => {
     try {
       await signOut(auth);
       console.log("User signed out successfully.");
+      navigate('/login')
+      
   } catch (error) {
       console.error("Error signing out:", error);
   }
@@ -108,7 +111,7 @@ const Header = () => {
 </div>
 
                     <li>
-                    <Link onClick={handlesignout} to={'/'}>Signout</Link>
+                    <Link onClick={handlesignout} >Signout</Link>
                     </li>
 
                   </>

@@ -24,6 +24,7 @@ useEffect(() => {
             // console.log('from auth ceking ',user)
         } else {
             setUser(null); // User is logged out
+            setUserEmail(null)
             console.log("No user logged in");
             
 

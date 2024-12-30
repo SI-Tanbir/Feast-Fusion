@@ -61,7 +61,7 @@ const Banner = () => {
       spaceBetween={50}
       slidesPerView={4}
       onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide><img src={slider1} alt="" /><p className='-mt-12 text-3xl text-white text-center uppercase'>Salad</p></SwiperSlide>
       <SwiperSlide><img src={slider2} alt="" /><p className='-mt-12 text-3xl text-white text-center uppercase'>Pizza</p></SwiperSlide>
