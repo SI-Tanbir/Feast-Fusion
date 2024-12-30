@@ -140,7 +140,8 @@ const Login = () => {
 
             </div>
             <div className="form-control mt-6">
-              <button disabled={disabled} className="btn btn-primary">Login</button>
+              {/* to do after complete produciton addded this --disabled in the disabled place */}
+              <button disabled={false} className="btn btn-primary">Login</button>
             </div>
           </form>
         </div>

@@ -3,6 +3,10 @@ import { Link } from "react-router";
 import { AuthContext } from "./Authprovider/Authprovider";
 import app from "../firebase";
 import { getAuth, signOut } from "firebase/auth";
+import { TiShoppingCart } from "react-icons/ti";
+
+
+
 
 const Header = () => {
   const {user} = useContext(AuthContext)
@@ -96,6 +100,13 @@ const Header = () => {
                    <li>
           <Link to={'/dashboard'}>Dashboard</Link>
           </li>
+          
+          <div className="indicator text-4xl">
+  <span className="indicator-item badge badge-secondary">0+</span>
+  <TiShoppingCart  />
+
+</div>
+
                     <li>
                     <Link onClick={handlesignout} to={'/'}>Signout</Link>
                     </li>

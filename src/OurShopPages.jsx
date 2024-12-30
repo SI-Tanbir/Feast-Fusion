@@ -28,12 +28,12 @@ useEffect(()=>{
      if(category){
       
       handledata(category,d)
-      
+      setLoading(false)
     }else{
       handledata('salad',d)
-      
+      // setLoading(false)
     }
-    setLoading(false)
+    
     }
 )
 },[])
@@ -62,6 +62,10 @@ useEffect(()=>{
     }
 
 
+    //ading cart function here
+    const handleCart=(data)=>{
+      console.log(data)
+    }
 
 
     
@@ -186,7 +190,7 @@ useEffect(()=>{
     <h2 className="card-title">{res.name}</h2>
     <p>{res.recipe}</p>
     <div className="card-actions justify-center">
-      <button  className="btn btn-primary">Add to cart</button>
+      <button onClick={()=>handleCart(res)} className="btn btn-primary">Add to cart</button>
     </div>
   </div>
 </div>
