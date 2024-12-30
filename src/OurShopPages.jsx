@@ -7,8 +7,13 @@ import { useLocation, useNavigate } from "react-router";
 import { AuthContext } from "./Authprovider/Authprovider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useCart } from "./hooks/useCart";
 
 const OurShopPages = () => {
+
+// adding tanstack cart hook refetch here
+const {refetch}=useCart()
+
   const location = useLocation();
   const navigate = useNavigate();
   const [data, setData] = useState(null);
@@ -51,6 +56,8 @@ const OurShopPages = () => {
     }
   };
 
+
+
   //ading cart function here
   const handleCart = (data) => {
     // console.log( "chekcing ",data,userEmail.email)
@@ -77,6 +84,10 @@ const OurShopPages = () => {
               showConfirmButton: false,
               timer: 1500,
             });
+
+            // adding tanstack refetch here
+            refetch()
+
           }
         })
         .catch((error) => console.error(error));
