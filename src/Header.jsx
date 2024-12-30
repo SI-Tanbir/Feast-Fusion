@@ -4,11 +4,16 @@ import { AuthContext } from "./Authprovider/Authprovider";
 import app from "../firebase";
 import { getAuth, signOut } from "firebase/auth";
 import { TiShoppingCart } from "react-icons/ti";
+import { useCart } from "./hooks/useCart";
+
 
 
 
 
 const Header = () => {
+
+  const {cart}=useCart()
+  // console.log(cart)
   const {user} = useContext(AuthContext)
   const navigate=useNavigate()
   // console.log(user)
@@ -105,7 +110,7 @@ const Header = () => {
           </li>
           
           <div className="indicator text-4xl">
-  <span className="indicator-item badge badge-secondary">0+</span>
+  <span className="indicator-item badge badge-secondary">{cart.length}+</span>
   <TiShoppingCart  />
 
 </div>
