@@ -9,7 +9,7 @@ export const AuthContext = createContext('');
 const Authprovider = ({children}) => {
 
 const [loading,setloading]=useState(true)
-
+const [userEmail,setUserEmail]=useState('')
 
 const [user, setUser] = useState(null);
 
@@ -19,6 +19,7 @@ useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         if (currentUser) {
             setUser(true); // User is logged in
+            setUserEmail(currentUser) //preserving the user data
             console.log("User logged in:", currentUser);
             // console.log('from auth ceking ',user)
         } else {
@@ -43,7 +44,8 @@ useEffect(() => {
 
 const info={loading,
     setloading,
-    user
+    user,
+    userEmail
                 }
 
 

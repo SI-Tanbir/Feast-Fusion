@@ -4,15 +4,16 @@ import { useContext, useState } from 'react'
 import banner from './assets/contact/banner.jpg'
 import { useEffect } from 'react'
 import Skeleton from 'react-loading-skeleton'
-import { useLocation } from 'react-router'
+import {  useLocation, useNavigate  } from 'react-router'
 import { AuthContext } from './Authprovider/Authprovider'
 
 const OurShopPages = () => {
 
   const location = useLocation();
+  const navigate = useNavigate();
   const [data ,setData]=useState(null)
 
-  const {loading,setLoading}=useContext(AuthContext)
+  const {loading,setLoading,userEmail}=useContext(AuthContext)
 
   // const [loading,setLoading]=useState(true)
   const [card,setCard]=useState([])
@@ -64,7 +65,18 @@ useEffect(()=>{
 
     //ading cart function here
     const handleCart=(data)=>{
-      console.log(data)
+      // console.log(data,userEmail.email)
+      if(userEmail && userEmail.email){
+
+        console.log('ready to send data')
+
+      }
+      else{
+        navigate('/login');
+      }
+
+
+
     }
 
 
