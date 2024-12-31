@@ -50,8 +50,12 @@ const DashboardLayout = () => {
               >
                 {item.icon}
                 <span>{item.name}</span>
+
               </NavLink>
             </li>
+
+
+
           ))}
         </ul>
       </div>

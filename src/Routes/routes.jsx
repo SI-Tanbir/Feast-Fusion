@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Cart from "../Dashboard/Cart";
 import Home from "../Dashboard/Home";
+import DashbardDefaultPage from "../Dashboard/DashbardDefaultPage";
 
 
 export let router = createBrowserRouter([
@@ -51,6 +52,11 @@ export let router = createBrowserRouter([
   path:'/dashboard',
   element:<DashboardLayout></DashboardLayout>,
   children:[
+    {
+      path:'/dashboard',
+      element:<DashbardDefaultPage></DashbardDefaultPage>
+
+  },
     {
         path:'/dashboard/carts',
         element:<Cart></Cart>
