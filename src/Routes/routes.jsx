@@ -6,7 +6,11 @@ import OurShopPages from "../OurShopPages";
 import Login from "../Login";
 import Register from "../Register";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../Dashboard";
+
+import DashboardLayout from "../Layouts/DashboardLayout";
+import Cart from "../Dashboard/Cart";
+import Home from "../Dashboard/Home";
+
 
 export let router = createBrowserRouter([
   {
@@ -33,13 +37,32 @@ export let router = createBrowserRouter([
       path:'/register',
       element:<Register></Register>
     },
-    {
-      path:'/dashboard',
-      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
-    }
+    // {
+    //   path:'/dashboard',
+    //   element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+    // }
 
 ],
   
-
 },
+
+// adding Dashboard board route
+{
+  path:'/dashboard',
+  element:<DashboardLayout></DashboardLayout>,
+  children:[
+    {
+        path:'/dashboard/carts',
+        element:<Cart></Cart>
+
+    },
+    {
+      path:'/dashboard/home',
+      element:<Home></Home>
+
+  }
+  ]
+}
+
+
 ]);

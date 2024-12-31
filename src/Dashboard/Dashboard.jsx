@@ -7,8 +7,7 @@ const Dashboard = () => {
     
     <div>
 
-        <p>his is Secret dashboard</p>
-    </div>
+        <p>his is Secret dashboard</p>    </div>
 
 
   )
