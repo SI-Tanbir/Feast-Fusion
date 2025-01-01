@@ -13,6 +13,8 @@ import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "./Authprovider/Authprovider";
 import { useLocation, useNavigate } from "react-router";
+import SocialLoginGoogle from "./Components/SocialLoginGoogle";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
   // const info=useContext(AuthContext)
@@ -92,6 +94,7 @@ const Login = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+       
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -136,7 +139,9 @@ const Login = () => {
                 Login
               </button>
             </div>
+
           </form>
+          <SocialLoginGoogle> </SocialLoginGoogle>
         </div>
       </div>
     </div>

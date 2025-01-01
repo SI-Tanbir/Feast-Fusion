@@ -9,54 +9,244 @@ import { RiShoppingBag4Fill } from "react-icons/ri";
 import { MdContacts } from "react-icons/md";
 
 const DashboardLayout = () => {
-  const navItems = [
-    { name: "User Home", icon: <FaHome />, to: "/dashboard/home" },
-    {
-      name: "Reservation",
-      icon: <PiForkKnifeFill />,
-      to: "/dashboard/reservation",
-    },
-    {
-      name: "Payment History",
-      icon: <HiMenu />,
-      to: "/dashboard/payment-history",
-    },
-    { name: "MY Carts", icon: <FaBook />, to: "/dashboard/carts" },
-    { name: "ADD Review", icon: <PiUsersThreeFill />, to: "/dashboard/review" },
-    {
-      name: "MY BOOKINGS",
-      icon: <PiUsersThreeFill />,
-      to: "/dashboard/bookings",
-    },
-    { name: "Home", icon: <FaHome />, to: "/" },
-    { name: "Menu", icon: <HiMenu />, to: "/dashboard/menu" },
-    { name: "Shop", icon: <RiShoppingBag4Fill />, to: "/dashboard/shop" },
-    { name: "Contact", icon: <MdContacts />, to: "/dashboard/contact" },
-  ];
+  const isAdmin = true; //ading the true leter we setting the admin
 
   return (
     <div className="flex">
       <div className="bg-slate-300 w-[250px] p-4 h-[100vh]">
         <ul>
-          {navItems.map((item) => (
-            <li key={item.name} className="p-2 rounded-md">
-              <NavLink
-                to={item.to}
-                className={({ isActive }) =>
-                  `flex items-center space-x-2 p-2 rounded-md ${
-                    isActive ? "bg-orange-500 text-white" : "hover:bg-white"
-                  }`
-                }
-              >
-                {item.icon}
-                <span>{item.name}</span>
-
-              </NavLink>
-            </li>
 
 
+          {isAdmin ? (
+            <>
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/home"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <FaHome />
+                  <span>Admin Home</span>
+                </NavLink>
+              </li>
 
-          ))}
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/reservation"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <PiForkKnifeFill />
+                  <span>Add Items</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/payment-history"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <HiMenu />
+                  <span>MANAGA ITEMS</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/carts"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <FaBook />
+                  <span>MANAGE BOOKINGS</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/users"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <PiUsersThreeFill />
+                  <span>ALL USERS</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/bookings"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <PiUsersThreeFill />
+                  <span>MY BOOKINGS</span>
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/home"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <FaHome />
+                  <span>User Home</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/reservation"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <PiForkKnifeFill />
+                  <span>Reservation</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/payment-history"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <HiMenu />
+                  <span>Payment History</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/carts"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <FaBook />
+                  <span>MY Carts</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/review"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <PiUsersThreeFill />
+                  <span>ADD Review</span>
+                </NavLink>
+              </li>
+
+              <li className="p-2 rounded-md">
+                <NavLink
+                  to="/dashboard/bookings"
+                  className={({ isActive }) =>
+                    `flex items-center space-x-2 p-2 rounded-md ${
+                      isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                    }`
+                  }
+                >
+                  <PiUsersThreeFill />
+                  <span>MY BOOKINGS</span>
+                </NavLink>
+              </li>
+            </>
+          )}
+          <hr />
+
+          <li className="p-2 rounded-md">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `flex items-center space-x-2 p-2 rounded-md ${
+                  isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                }`
+              }
+            >
+              <FaHome />
+              <span>Home</span>
+            </NavLink>
+          </li>
+
+          <li className="p-2 rounded-md">
+            <NavLink
+              to="/dashboard/menu"
+              className={({ isActive }) =>
+                `flex items-center space-x-2 p-2 rounded-md ${
+                  isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                }`
+              }
+            >
+              <HiMenu />
+              <span>Menu</span>
+            </NavLink>
+          </li>
+
+          <li className="p-2 rounded-md">
+            <NavLink
+              to="/dashboard/shop"
+              className={({ isActive }) =>
+                `flex items-center space-x-2 p-2 rounded-md ${
+                  isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                }`
+              }
+            >
+              <RiShoppingBag4Fill />
+              <span>Shop</span>
+            </NavLink>
+          </li>
+
+          <li className="p-2 rounded-md">
+            <NavLink
+              to="/dashboard/contact"
+              className={({ isActive }) =>
+                `flex items-center space-x-2 p-2 rounded-md ${
+                  isActive ? "bg-orange-500 text-white" : "hover:bg-white"
+                }`
+              }
+            >
+              <MdContacts />
+              <span>Contact</span>
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div>

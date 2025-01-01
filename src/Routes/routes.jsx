@@ -11,6 +11,7 @@ import DashboardLayout from "../Layouts/DashboardLayout";
 import Cart from "../Dashboard/Cart";
 import Home from "../Dashboard/Home";
 import DashbardDefaultPage from "../Dashboard/DashbardDefaultPage";
+import Users from "../Dashboard/Users";
 
 
 export let router = createBrowserRouter([
@@ -66,7 +67,12 @@ export let router = createBrowserRouter([
       path:'/dashboard/home',
       element:<Home></Home>
 
+  },
+  {
+    path:'/dashboard/users',
+    element:<Users></Users>
   }
+
   ]
 }
 
