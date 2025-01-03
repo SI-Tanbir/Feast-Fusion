@@ -2,6 +2,7 @@ import { FaGoogle } from "react-icons/fa";
 
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../firebase";
+import axios from "axios";
 
 
 const SocialLoginGoogle = () => {
@@ -25,6 +26,8 @@ const SocialLoginGoogle = () => {
     console.log(token);
     // The signed-in user info.
     const user = result.user;
+    const axiosSend= axios.post(`http://localhost:5000/users`,user)
+    console.log(axiosSend?.data)
     // IdP data available using getAdditionalUserInfo(result)
     // ...
   })

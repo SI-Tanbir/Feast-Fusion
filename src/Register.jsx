@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import app from '../firebase';
 import img from './assets/others/authentication1.png'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
@@ -24,6 +25,8 @@ const Register = () => {
     // Signed up 
     const user = userCredential.user;
     console.log(user)
+    const axiosSend = axios.post(`http://localhost:5000/users`, user);
+        console.log(axiosSend?.data);
     // ...
   })
   .catch((error) => {

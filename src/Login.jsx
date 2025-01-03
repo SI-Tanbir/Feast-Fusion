@@ -15,6 +15,7 @@ import { AuthContext } from "./Authprovider/Authprovider";
 import { useLocation, useNavigate } from "react-router";
 import SocialLoginGoogle from "./Components/SocialLoginGoogle";
 import { FaGoogle } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
   // const info=useContext(AuthContext)
@@ -61,6 +62,8 @@ const Login = () => {
         // Signed up
         const user = userCredential.user;
         console.log(user);
+        // const axiosSend = axios.post(`http://localhost:5000/users`, user);
+        // console.log(axiosSend?.data);
 
         if (location.state?.from) {
           // const redirectPath = location.state?.from || "/menu";
@@ -94,7 +97,6 @@ const Login = () => {
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-neutral-content text-center">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-       
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -139,7 +141,6 @@ const Login = () => {
                 Login
               </button>
             </div>
-
           </form>
           <SocialLoginGoogle> </SocialLoginGoogle>
         </div>
