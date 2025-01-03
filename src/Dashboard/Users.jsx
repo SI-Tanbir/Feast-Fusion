@@ -72,7 +72,7 @@ const handleAdmin=(id)=>{
         <th>Name</th>
         <th>email</th>
         <th>Admin</th>
-        <th>Ation</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -86,7 +86,10 @@ const handleAdmin=(id)=>{
         <td>{index +1}</td>
         <td>name</td>
         <td>{user.email}</td>
-        <td><button onClick={()=>handleAdmin(user._id)}><RiAdminFill className='text-3xl' /></button></td>
+        <td><button onClick={()=>handleAdmin(user._id)}>
+          
+          <RiAdminFill className='text-3xl' />
+          </button></td>
         <td><button className='btn' onClick={()=>handleDelete(user._id)}><MdDelete className='text-3xl' /></button></td>
       </tr>
       </>

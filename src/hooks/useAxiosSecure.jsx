@@ -35,20 +35,31 @@ const useAxiosSecure = () => {
   );
 
   axiosSecure.interceptors.response.use(
+    (response) => {
+      // Handle successful responses
+      return response; // Pass the response to the next handler
+    },
  (error)=> {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
     const status=error.response.status
+   
+   
     console.log("status error interceptor",status)
+   
+   
     if(status === 401 || status === 403){
     
-        signOut(auth)
-        navigate('/login')
+        // signOut(auth)
+        console.log("hey it's useAxiossecure errror")
+        // navigate('/login')
 
 
     }
     return Promise.reject(error);
   });
+
+
 
 
 

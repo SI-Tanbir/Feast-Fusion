@@ -23,12 +23,14 @@ useEffect(() => {
             setUserEmail(currentUser) //preserving the user data
             console.log("User logged in:", currentUser);
             const email=currentUser.email;
+
+            // console.log(email)
             
             if (email) {
-                axios.post('http://localhost:5000/jwt', email)
+                axios.post('http://localhost:5000/jwt', {email:email})
                     .then((response) => {
                         // Directly access response.data
-                        var jwtToken = response.data; 
+                        const jwtToken = response.data.token; 
                         console.log(jwtToken); // JWT string
 
                         localStorage.setItem('access-token', jwtToken)
@@ -66,8 +68,8 @@ useEffect(() => {
 const info={loading,
     setloading,
     user,
-    userEmail
-                }
+    userEmail,
+       }
 
 
   return (

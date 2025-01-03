@@ -7,14 +7,26 @@ import { FaBook } from "react-icons/fa6";
 import { PiUsersThreeFill } from "react-icons/pi";
 import { RiShoppingBag4Fill } from "react-icons/ri";
 import { MdContacts } from "react-icons/md";
+import useAdmin from "../hooks/useAdmin";
 
 const DashboardLayout = () => {
-  const isAdmin = true; //ading the true leter we setting the admin
+
+
+  const [isAdmin] = useAdmin(); //ading the true leter we setting the admin
+  // const isAdmin=true
+  
+  console.log("checking admin ",isAdmin)
+
 
   return (
     <div className="flex">
       <div className="bg-slate-300 w-[250px] p-4 h-[100vh]">
         <ul>
+
+
+
+
+
 
 
           {isAdmin ? (
