@@ -5,12 +5,17 @@ import React from 'react'
 import { MdDelete } from 'react-icons/md';
 import { RiAdminFill } from 'react-icons/ri';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import useAdmin from '../hooks/useAdmin';
 
 
 
 const Users = () => {
 
+
+
   const axiosSecure=useAxiosSecure()
+  const [isAdmin]=useAdmin()
+  // console.log('it from usrs',isAdmin)
 
   // axiosSecure.post('/allusers',{Headers:{authorization: `Bearer ${localStorage.getItem('access-token')}`}})
   // .then(res=>console.log(res.data))
@@ -25,6 +30,8 @@ const Users = () => {
         },
       })
 
+
+  console.log("it from users ",userData)
 
 
 
@@ -79,7 +86,8 @@ const handleAdmin=(id)=>{
       {/* row 1 */}
 
     {
-        userData.map((user,index)=>  <>
+        userData?.map((user,index)=>  <>
+        
 
 
 <tr key={user.key}>
@@ -87,8 +95,10 @@ const handleAdmin=(id)=>{
         <td>name</td>
         <td>{user.email}</td>
         <td><button onClick={()=>handleAdmin(user._id)}>
-          
           <RiAdminFill className='text-3xl' />
+          
+          
+
           </button></td>
         <td><button className='btn' onClick={()=>handleDelete(user._id)}><MdDelete className='text-3xl' /></button></td>
       </tr>

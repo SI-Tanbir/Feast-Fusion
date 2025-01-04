@@ -47,7 +47,7 @@ const DashboardLayout = () => {
 
               <li className="p-2 rounded-md">
                 <NavLink
-                  to="/dashboard/reservation"
+                  to="/dashboard/additems"
                   className={({ isActive }) =>
                     `flex items-center space-x-2 p-2 rounded-md ${
                       isActive ? "bg-orange-500 text-white" : "hover:bg-white"

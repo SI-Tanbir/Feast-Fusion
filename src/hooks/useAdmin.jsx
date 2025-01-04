@@ -8,10 +8,13 @@ const useAdmin = () => {
  
     const axiosSecure =useAxiosSecure()
 
-    const {data:isAdmin} =useQuery({
+    const {data:isAdmin,isLoading:isAdminLoading} =useQuery({
         queryKey:[userEmail?.email,'isAdmin'],
         queryFn:async()=>{
+
+
             
+
             const res= await axiosSecure.get( `/user/admin/${userEmail.email}`);
 
             console.log("checking from use admin hook",res.data)
@@ -19,7 +22,7 @@ const useAdmin = () => {
         }
 
     }) 
-    return [isAdmin]
+    return [isAdmin,isAdminLoading]
 
 
 }
