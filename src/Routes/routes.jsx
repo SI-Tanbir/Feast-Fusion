@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, useParams } from "react-router";
 import App from "../App";
 import Layout from "../Layouts/Layout";
 import Menubar from "../Menubar";
@@ -14,9 +14,17 @@ import DashbardDefaultPage from "../Dashboard/DashbardDefaultPage";
 import Users from "../Dashboard/Users";
 import AddItems from "../Dashboard/AddItems";
 import ManageItems from "../Dashboard/ManageItems";
+import UpdateItems from "../Dashboard/UpdateItems";
 
 
-export let router = createBrowserRouter([
+export let router = 
+
+
+
+// const {id}=useParams();
+
+createBrowserRouter([
+
   {
     path: "/",
     element:<Layout></Layout>,
@@ -81,7 +89,12 @@ export let router = createBrowserRouter([
   {
     path:'/dashboard/manageitems',
     element:<ManageItems></ManageItems>
-  }
+  },
+  {
+    path:'/dashboard/edit/:id',
+  element:<UpdateItems></UpdateItems> ,
+  loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`) 
+ }
 
   ]
 }
