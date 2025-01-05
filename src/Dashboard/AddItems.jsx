@@ -6,7 +6,7 @@ const AddItems = () => {
   const imageApi =import.meta.env.VITE_IMAGE_API_KEY
 
   const axiosSecure =useAxiosSecure()
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
 
   const onSubmit = async(data) => {
     
@@ -31,6 +31,9 @@ const AddItems = () => {
     .then(res=>{
       console.log("its from add recipie",res)
     })
+
+    reset()
+    
 
   };
 

@@ -12,8 +12,8 @@ import useAdmin from "../hooks/useAdmin";
 const DashboardLayout = () => {
 
 
-  const [isAdmin] = useAdmin(); //ading the true leter we setting the admin
-  // const isAdmin=true
+  // const [isAdmin] = useAdmin(); //ading the true leter we setting the admin
+  const isAdmin=true
   
   console.log("checking admin ",isAdmin)
 
@@ -61,7 +61,7 @@ const DashboardLayout = () => {
 
               <li className="p-2 rounded-md">
                 <NavLink
-                  to="/dashboard/payment-history"
+                  to="/dashboard/manageitems"
                   className={({ isActive }) =>
                     `flex items-center space-x-2 p-2 rounded-md ${
                       isActive ? "bg-orange-500 text-white" : "hover:bg-white"

@@ -13,6 +13,7 @@ import Home from "../Dashboard/Home";
 import DashbardDefaultPage from "../Dashboard/DashbardDefaultPage";
 import Users from "../Dashboard/Users";
 import AddItems from "../Dashboard/AddItems";
+import ManageItems from "../Dashboard/ManageItems";
 
 
 export let router = createBrowserRouter([
@@ -76,6 +77,10 @@ export let router = createBrowserRouter([
   {
     path:'/dashboard/additems',
     element:<AddItems></AddItems>
+  },
+  {
+    path:'/dashboard/manageitems',
+    element:<ManageItems></ManageItems>
   }
 
   ]
