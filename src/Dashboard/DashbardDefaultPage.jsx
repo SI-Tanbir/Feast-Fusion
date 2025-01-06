@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { AuthContext } from "../Authprovider/Authprovider";
 
 const DashbardDefaultPage = () => {
+  const { userEmail } = useContext(AuthContext);
+  console.log("hello from ", userEmail);
   return (
-    <div>welcome to DashbardDefaultPage</div>
-  )
-}
+    <div>
+      <p> welcome     {userEmail?.displayName ? userEmail.displayName : "back"} </p>
 
-export default DashbardDefaultPage
+     
+    </div>
+  );
+};
+
+export default DashbardDefaultPage;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom"; // Use NavLink for active class
 import { FaHome } from "react-icons/fa";
 import { PiForkKnifeFill } from "react-icons/pi";
@@ -9,16 +9,19 @@ import { RiShoppingBag4Fill } from "react-icons/ri";
 import { MdContacts } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
 import { useCart } from "../hooks/useCart";
+import { AuthContext } from "../Authprovider/Authprovider";
 
 const DashboardLayout = () => {
 
   const {cart} =useCart()
+  const {userEmail}=useContext(AuthContext)
+  const email= userEmail?.email
   
 
-  // const [isAdmin] = useAdmin(); //ading the true leter we setting the admin
-  const isAdmin=false
+  const {isAdmin} = useAdmin(); //ading the true leter we setting the admin
+  // const isAdmin=false
   
-  console.log("checking admin ",isAdmin)
+  console.log("checking admin  ",isAdmin)
 
 
   return (
@@ -36,7 +39,7 @@ const DashboardLayout = () => {
             <>
               <li className="p-2 rounded-md">
                 <NavLink
-                  to="/dashboard/home"
+                  to="/dashboard/adminhome"
                   className={({ isActive }) =>
                     `flex items-center space-x-2 p-2 rounded-md ${
                       isActive ? "bg-orange-500 text-white" : "hover:bg-white"
@@ -122,7 +125,7 @@ const DashboardLayout = () => {
             <>
               <li className="p-2 rounded-md">
                 <NavLink
-                  to="/dashboard/home"
+                  to="/dashboard/userhome"
                   className={({ isActive }) =>
                     `flex items-center space-x-2 p-2 rounded-md ${
                       isActive ? "bg-orange-500 text-white" : "hover:bg-white"
@@ -150,7 +153,10 @@ const DashboardLayout = () => {
 
               <li className="p-2 rounded-md">
                 <NavLink
-                  to="/dashboard/payment-history"
+                  
+                  to={`/dashboard/payment-history/${email}`}
+
+
                   className={({ isActive }) =>
                     `flex items-center space-x-2 p-2 rounded-md ${
                       isActive ? "bg-orange-500 text-white" : "hover:bg-white"

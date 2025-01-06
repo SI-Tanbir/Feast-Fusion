@@ -7,61 +7,56 @@ const axiosSecure = axios.create({
   baseURL: "http://localhost:5000", // Base URL for your API
 });
 
-
-
 const useAxiosSecure = () => {
-  // Add a request interceptor
-  const navigate =useNavigate()
-  const auth=getAuth(app)
+  const navigate = useNavigate();
+  const auth = getAuth(app);
+
+  // Request Interceptor
   axiosSecure.interceptors.request.use(
-    (config)=> {
-      // Retrieve the token from localStorage
+    (config) => {
       const token = localStorage.getItem("access-token");
-
-   
-        // Add the Authorization header to the request
+      if (token) {
         config.headers.authorization = `Bearer ${token}`;
-        console.log('interceptor is adding ',config.headers.authorization)
-
-      // Do something before the request is sent
+        console.log("Interceptor is adding:", config.headers.authorization);
+      } else {
+        console.warn("No access token found in localStorage");
+      }
       return config;
     },
-    function (error) {
-      // Handle any request errors
-   
+    (error) => {
       console.error("Request error:", error);
       return Promise.reject(error);
     }
   );
 
+  // Response Interceptor
   axiosSecure.interceptors.response.use(
     (response) => {
-      // Handle successful responses
       return response; // Pass the response to the next handler
     },
- (error)=> {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    const status=error.response.status
-   
-   
-    console.log("status error interceptor",status)
-   
-   
-    if(status === 401 || status === 403){
-    
+    (error) => {
+      const status = error.response?.status;
+
+      if (status === 401 || status === 403) {
+        console.error("Authentication error: Signing out and redirecting to login",error);
+
+
         // signOut(auth)
-        console.log("hey it's useAxiossecure errror")
-        // navigate('/login')
+        //   .then(() => {
+        //     navigate("/login");
+        //   })
+        //   .catch((signOutError) => {
+        //     console.error("Sign out error:", signOutError);
+        //   });
 
 
+      } else {
+        console.error("Response error:", error);
+      }
+
+      return Promise.reject(error);
     }
-    return Promise.reject(error);
-  });
-
-
-
-
+  );
 
   return axiosSecure;
 };

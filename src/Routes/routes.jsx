@@ -16,6 +16,9 @@ import AddItems from "../Dashboard/AddItems";
 import ManageItems from "../Dashboard/ManageItems";
 import UpdateItems from "../Dashboard/UpdateItems";
 import PaymentPage from "../Dashboard/PaymentPage";
+import PaymentHistory from "../Dashboard/PaymentHistory";
+import axios from "axios";
+import UserHome from "../Dashboard/UserHome/UserHome";
 
 
 export let router = 
@@ -65,7 +68,13 @@ createBrowserRouter([
   element:<DashboardLayout></DashboardLayout>,
   children:[
     {
-      path:'/dashboard',
+      path:'/dashboard/userhome',
+      element:<UserHome></UserHome>
+
+  },
+  
+    {
+      path:'/dashboard/adminhome',
       element:<DashbardDefaultPage></DashbardDefaultPage>
 
   },
@@ -98,8 +107,26 @@ createBrowserRouter([
  },
  {
   path:"/dashboard/payment",
-  element:<PaymentPage></PaymentPage>
+  element:<PaymentPage></PaymentPage>,
+  
+ },
+
+
+ {
+  path:"/dashboard/payment-history/:email",
+  element:<PaymentHistory></PaymentHistory>,
+  loader:async({params})=>{
+
+    
+    const res= axios.post(`http://localhost:5000/paymenthistory/${params.email}`)
+    
+    return res
+    
+    }
  }
+
+
+
 
   ]
 }

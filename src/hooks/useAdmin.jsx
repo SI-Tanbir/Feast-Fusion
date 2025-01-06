@@ -6,6 +6,7 @@ import { AuthContext } from '../Authprovider/Authprovider'
 const useAdmin = () => {
     const {userEmail}=useContext(AuthContext)
  
+    
     const axiosSecure =useAxiosSecure()
 
     const {data:isAdmin,isLoading:isAdminLoading} =useQuery({
@@ -22,7 +23,8 @@ const useAdmin = () => {
         }
 
     }) 
-    return [isAdmin,isAdminLoading]
+
+    return {isAdmin,isAdminLoading}
 
 
 }
