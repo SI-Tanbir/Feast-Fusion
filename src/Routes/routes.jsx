@@ -15,6 +15,7 @@ import Users from "../Dashboard/Users";
 import AddItems from "../Dashboard/AddItems";
 import ManageItems from "../Dashboard/ManageItems";
 import UpdateItems from "../Dashboard/UpdateItems";
+import PaymentPage from "../Dashboard/PaymentPage";
 
 
 export let router = 
@@ -94,6 +95,10 @@ createBrowserRouter([
     path:'/dashboard/edit/:id',
   element:<UpdateItems></UpdateItems> ,
   loader:({params})=>fetch(`http://localhost:5000/menu/${params.id}`) 
+ },
+ {
+  path:"/dashboard/payment",
+  element:<PaymentPage></PaymentPage>
  }
 
   ]

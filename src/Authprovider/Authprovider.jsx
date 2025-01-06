@@ -9,6 +9,7 @@ export const AuthContext = createContext();
 
 const Authprovider = ({children}) => {
 
+
 const [loading,setloading]=useState(true)
 const [userEmail,setUserEmail]=useState('')
 
@@ -17,6 +18,7 @@ const [user, setUser] = useState(null);
 const auth=getAuth(app)
 
 useEffect(() => {
+    
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         if (currentUser) {
             setUser(true); // User is logged in

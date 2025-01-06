@@ -42,11 +42,11 @@ const UpdateItems = () => {
     const combinedData = { ...data, image: upload.data.data.url };
 
    const updateMenu =await axios.post(`http://localhost:5000/menu/updatemenu/${item[0]._id}`,combinedData)
-
+  
 
 
   };
-
+ 
   return (
     <div>
       <div className="bg-slate-100 w-[500px]">

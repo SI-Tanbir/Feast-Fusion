@@ -3,6 +3,7 @@ import { useCart } from "../hooks/useCart";
 import { useDeleteCart } from "../hooks/useDeteteCart";
 import axios from "axios";
 import Swal from 'sweetalert2'
+import { Link } from "react-router";
 
 
 const Cart = () => {
@@ -59,7 +60,15 @@ const Cart = () => {
         <p>
           TOTAL PRICE: <span className=" text-2xl">{totalPrice} </span>${" "}
         </p>
-        <button className=" bg-[#d3931b]  rounded p-2  ">Pay</button>
+
+        {
+          cart.length>0 ?
+          <Link to={'/dashboard/payment'} className=" bg-[#d3931b]  rounded p-2  ">Pay</Link> 
+          :
+          <button disabled className=" bg-[#aca8a8]  rounded p-2  ">Pay</button>
+
+        }
+        
         <hr />
       </div>
 

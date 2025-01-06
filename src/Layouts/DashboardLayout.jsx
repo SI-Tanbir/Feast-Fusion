@@ -8,12 +8,15 @@ import { PiUsersThreeFill } from "react-icons/pi";
 import { RiShoppingBag4Fill } from "react-icons/ri";
 import { MdContacts } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
+import { useCart } from "../hooks/useCart";
 
 const DashboardLayout = () => {
 
+  const {cart} =useCart()
+  
 
   // const [isAdmin] = useAdmin(); //ading the true leter we setting the admin
-  const isAdmin=true
+  const isAdmin=false
   
   console.log("checking admin ",isAdmin)
 
@@ -169,7 +172,7 @@ const DashboardLayout = () => {
                   }
                 >
                   <FaBook />
-                  <span>MY Carts</span>
+                  <span>MY Carts ({cart.length})</span>
                 </NavLink>
               </li>
 
