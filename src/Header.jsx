@@ -5,6 +5,8 @@ import app from "../firebase";
 import { getAuth, signOut } from "firebase/auth";
 import { TiShoppingCart } from "react-icons/ti";
 import { useCart } from "./hooks/useCart";
+import useAdmin from "./hooks/useAdmin";
+
 
 
 
@@ -12,6 +14,7 @@ import { useCart } from "./hooks/useCart";
 
 const Header = () => {
 
+  const {isAdmin}=useAdmin()
   const {cart}=useCart()
   // console.log(cart)
   const {user} = useContext(AuthContext)
@@ -102,12 +105,20 @@ const Header = () => {
           <li>
           <Link to={'/shop'}>Shop</Link>
           </li>
+{
+  user && isAdmin && <li>
+  <Link to={'/dashboard/adminhome'}>dashboard</Link>
+  </li>
+}
+{
+  user ? !isAdmin ? <li>
+  <Link to={'/dashboard/userhome'}>dashboard</Link>
+  </li> : '' :''
+}
 
                 {
                   user ? ( <>
-                   <li>
-          <Link to={'/dashboard'}>Dashboard</Link>
-          </li>
+              
           
           <div className="indicator text-4xl">
   <span className="indicator-item badge badge-secondary">{cart.length}+</span>

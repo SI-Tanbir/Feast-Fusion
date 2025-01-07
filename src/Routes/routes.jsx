@@ -10,7 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "../Layouts/DashboardLayout";
 import Cart from "../Dashboard/Cart";
 import Home from "../Dashboard/Home";
-import DashbardDefaultPage from "../Dashboard/DashbardDefaultPage";
+import AdminDashboard from "../Dashboard/AdminDashboard";
 import Users from "../Dashboard/Users";
 import AddItems from "../Dashboard/AddItems";
 import ManageItems from "../Dashboard/ManageItems";
@@ -19,6 +19,7 @@ import PaymentPage from "../Dashboard/PaymentPage";
 import PaymentHistory from "../Dashboard/PaymentHistory";
 import axios from "axios";
 import UserHome from "../Dashboard/UserHome/UserHome";
+import AdminRoute from "./AdminRoute";
 
 
 export let router = 
@@ -75,7 +76,7 @@ createBrowserRouter([
   
     {
       path:'/dashboard/adminhome',
-      element:<DashbardDefaultPage></DashbardDefaultPage>
+      element:  <AdminRoute> <AdminDashboard></AdminDashboard></AdminRoute> 
 
   },
     {

@@ -9,7 +9,7 @@ const AdminRoute = ({children}) => {
     const navigate =useNavigate()
     const { user, userEmail,loading,setloading,} =useContext(AuthContext);
 
-    const  [isAdmin,isAdminLoading] =useAdmin()
+    const  {isAdmin,isAdminLoading} =useAdmin()
 
 
 if(loading || isAdminLoading){
