@@ -4,6 +4,10 @@ import {
   useQuery
 } from '@tanstack/react-query'
 import axios from "axios";
+// import BellcurbChart from "./GraphChart/BellcurbChart";
+// import BarChart from "./GraphChart/BellcurbChart";
+import BellcurbChart from "./GraphChart/BellcurbChart";
+import PieChartReveneu from "./GraphChart/PieChartReveneu";
 
 const AdminDashboard = () => {
 
@@ -25,7 +29,7 @@ const {data:adminStatus,refetch}=useQuery({
   const allProducts=adminStatus?.allProduct;
 
   const orders=adminStatus?.allOrders;
-  console.log(adminStatus.allOrders)
+  // console.log(adminStatus)
 
    
   return (
@@ -35,7 +39,11 @@ const {data:adminStatus,refetch}=useQuery({
 
  {/* adding stats here */}
 
+
+
       <div className="stats shadow">
+
+
 
   <div className="stat">
     <div className="stat-figure text-secondary">
@@ -103,6 +111,19 @@ const {data:adminStatus,refetch}=useQuery({
     <div className="stat-title">Orders</div>
     <div className="stat-value">{orders}</div>
     {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
+  </div>
+</div>
+
+
+{/* adding chart here */}
+
+<div className="flex">
+  <div className="w-1/2">
+  <BellcurbChart></BellcurbChart>
+  </div>
+  
+  <div>
+    <PieChartReveneu></PieChartReveneu>
   </div>
 </div>
 
